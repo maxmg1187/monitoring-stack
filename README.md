@@ -12,6 +12,9 @@ Prometheus scrapes metrics from a FastAPI app, Grafana visualizes them, and Aler
 - **Prometheus** — scrapes that endpoint every 15 seconds, stores the data, evaluates alert rules
 - **Grafana** — connects to Prometheus and renders dashboards via PromQL queries
 - **Alertmanager** — receives alerts from Prometheus and routes them to Slack
+  ^^^ this actually isnt working right now because i legit don't have enough ram on my EC2 free tier to have this process run, its gitignored, but it works locally if that means anything
+  <img width="777" height="112" alt="image" src="https://github.com/user-attachments/assets/b11f16d7-c600-40dd-b033-ce75d504d18a" />
+
 - **Terraform** — provisions the EC2 instance, security group, and Elastic IP on AWS
 - **GitHub Actions** — SSHes into the instance and redeploys the stack on every push to main
 
@@ -45,7 +48,7 @@ terraform apply
 
 that spins up a t3.micro EC2 instance with an Elastic IP and the right ports open. from there the GitHub Actions pipeline takes over and every push to main triggers a redeploy automatically.
 
-you'll need these three secrets set in your repo settings:
+you'll need these three secrets set in your repo settings, otherwise wont work:
 
 - `EC2_HOST` — the Elastic IP from Terraform output
 - `EC2_SSH_KEY` — your private key (the full thing including header/footer)
