@@ -1,0 +1,20 @@
+groups:
+  - name: system_alerts
+    rules:
+      - alert: HighCPUUsage
+        expr: cpu_usage_percent > 80
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage detected"
+          description: "CPU usage has been above 80% for more than 1 minute."
+
+      - alert: HighMemoryUsage
+        expr: memory_usage_percent > 80
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High memory usage detected"
+          description: "Memory usage has been above 80% for more than 1 minute."
