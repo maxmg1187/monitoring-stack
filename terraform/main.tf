@@ -83,3 +83,11 @@ output "instance_ip" {
   value       = aws_instance.monitoring.public_ip
   description = "Public IP of the monitoring stack EC2 instance"
 }
+resource "aws_eip" "monitoring" {
+  instance = aws_instance.monitoring.id
+}
+
+output "elastic_ip" {
+  value       = aws_eip.monitoring.public_ip
+  description = "Static Elastic IP of the monitoring stack"
+}
