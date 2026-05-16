@@ -10,3 +10,4 @@ terraform/.terraform.lock.hcl
 
 # Environment files
 .env
+alertmanager/alertmanager.yml
