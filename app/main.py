@@ -3,7 +3,7 @@ from prometheus_client import Gauge, make_asgi_app
 import psutil
 
 app = FastAPI()
-
+# adding comment here to check ci/cd works finally
 # Define metrics
 CPU_USAGE = Gauge("cpu_usage_percent", "Current CPU usage percentage")
 MEMORY_USAGE = Gauge("memory_usage_percent", "Current memory usage percentage")
