@@ -22,6 +22,8 @@ services:
       - "3000:3000"
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana-storage:/var/lib/grafana
 
   alertmanager:
     image: prom/alertmanager:latest
@@ -32,3 +34,6 @@ services:
       - ./alertmanager:/etc/alertmanager
     command:
       - "--config.file=/etc/alertmanager/alertmanager.yml"
+
+volumes:
+  grafana-storage:
